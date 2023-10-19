@@ -15,3 +15,4 @@ Feature: Login the system
       |"maryribeiro@gmailcom"  |"123698"|      |
       |"jorgelacerda@gmailcom" |"123444"|      |
       |"brunodeluca@yahoo.com" |"123698"|      |
+      |"paulinhomon@yahoo.com" |"258654"|      |
