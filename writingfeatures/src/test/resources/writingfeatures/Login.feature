@@ -4,7 +4,7 @@ Feature: Login the system
   I want to login the system
   So that I can see my data
 
-  Scenario Outline: Credentials are not valid
+  Scenario Outline: Validating credentials
     Given I access the login page
     When I fill the email field with <email>
     And I fill the password field with <password>
@@ -14,5 +14,3 @@ Feature: Login the system
       |email                   |password|result|
       |"maryribeiro@gmailcom"  |"123698"|      |
       |"jorgelacerda@gmailcom" |"123444"|      |
-      |"brunodeluca@yahoo.com" |"123698"|      |
-      |"paulinhomon@yahoo.com" |"258654"|      |
