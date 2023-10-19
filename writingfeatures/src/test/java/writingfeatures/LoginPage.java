@@ -19,17 +19,18 @@ public class LoginPage {
        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
        actions = new Actions(driver);
     }
-    WebElement fieldEmail = driver.findElement(By.id("email"));
-//    WebElement password;
-//    WebElement loginButton;
+    By fieldEmail = (By.id("email"));
+    By fieldPassword = (By.id("password"));
     public void navigateToLoginPage(){
         driver.get("https://front.serverest.dev/login");
     }
     public void fillFieldPassword(String password){
+        wait.until(ExpectedConditions.elementToBeClickable(fieldPassword));
+        driver.findElement(fieldPassword).sendKeys(password);
     }
     public void fillFieldEmail(String email){
         wait.until(ExpectedConditions.elementToBeClickable(fieldEmail));
-        actions.sendKeys(email);
+        driver.findElement(fieldEmail).sendKeys(email);
     }
 //    public void hitLoginButton(){
 //

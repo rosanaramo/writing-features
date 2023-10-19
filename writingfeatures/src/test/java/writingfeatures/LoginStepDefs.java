@@ -14,7 +14,7 @@ public class LoginStepDefs {
     }
     @When("I fill the email field with {string}")
     public void i_fill_the_email_field_with(String email) {
-//        loginPage.fillFieldEmail(email);
+        loginPage.fillFieldEmail(email);
     }
     @When("I fill the password field with {string}")
     public void i_fill_the_password_field_with(String string) {
