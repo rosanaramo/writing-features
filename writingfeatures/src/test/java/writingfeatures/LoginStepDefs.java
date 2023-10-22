@@ -2,14 +2,18 @@ package writingfeatures;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
+import tests.LoginTest;
 import utils.WebDriverFactory;
 
 public class LoginStepDefs {
     LoginPage loginPage;
     WebDriver driver;
+
+    LoginTest loginTest;
     public LoginStepDefs(){
         driver = WebDriverFactory.createWebDriver();
         loginPage = new LoginPage(driver);
+        loginTest = new LoginTest(driver);
     }
 
     @Given("I access the login page")
@@ -36,5 +40,7 @@ public class LoginStepDefs {
 
     @Then("I should see the {string} message")
     public void i_should_see_the_message(String result) {
+        loginTest.testLoginMessage(result);
     }
+
 }

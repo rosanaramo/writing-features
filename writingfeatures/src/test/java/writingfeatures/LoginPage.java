@@ -9,15 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage {
-    private static WebDriver driver;
+
+
+    private WebDriver driver;
     private WebDriverWait wait;
 
-    public  LoginPage(){
-       driver  = new ChromeDriver();
-       wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-    }
-
     public LoginPage(WebDriver driver){
+        this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
     By fieldEmail = (By.id("email"));
@@ -46,11 +44,5 @@ public class LoginPage {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(msgInvalidCredentials)));
         String msg = driver.findElement(msgInvalidCredentials).getText();
         return msg;
-    }
-
-    @After
-    static void after(){
-        driver.close();
-        driver.quit();
     }
 }
