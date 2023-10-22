@@ -1,11 +1,15 @@
 package writingfeatures;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.WebDriver;
+import utils.WebDriverFactory;
 
 public class LoginStepDefs {
     LoginPage loginPage;
+    WebDriver driver;
     public LoginStepDefs(){
-        loginPage = new LoginPage();
+        driver = WebDriverFactory.createWebDriver();
+        loginPage = new LoginPage(driver);
     }
 
     @Given("I access the login page")

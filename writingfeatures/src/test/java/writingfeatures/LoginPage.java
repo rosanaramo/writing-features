@@ -16,6 +16,10 @@ public class LoginPage {
        driver  = new ChromeDriver();
        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
+
+    public LoginPage(WebDriver driver){
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    }
     By fieldEmail = (By.id("email"));
     By fieldPassword = (By.id("password"));
     By msgInvalidCredentials = (By.xpath("//*[@id=\"root\"]/div/div/form/div[1]/span"));
