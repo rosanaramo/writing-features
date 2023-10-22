@@ -1,11 +1,8 @@
 package writingfeatures;
 
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -48,7 +45,7 @@ public class LoginPage {
     }
 
     @After
-    static void afterAll(){
+    static void after(){
         driver.close();
         driver.quit();
     }
