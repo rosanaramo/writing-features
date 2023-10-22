@@ -17,13 +17,20 @@ public class LoginStepDefs {
         loginPage.fillFieldEmail(email);
     }
     @When("I fill the password field with {string}")
-    public void i_fill_the_password_field_with(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void i_fill_the_password_field_with(String password) {
+       loginPage.fillFieldPassword(password);
     }
     @Then("I should see the  message")
     public void i_should_see_the_message() {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
+    }
+    @When("I hit the button login")
+    public void i_hit_the_button_login() {
+        loginPage.clickLoginButton();
+    }
+
+    @Then("I should see the {string} message")
+    public void i_should_see_the_message(String result) {
     }
 }

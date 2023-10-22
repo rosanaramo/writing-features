@@ -7,10 +7,11 @@ Feature: Login the system
   Scenario Outline: Validating credentials
     Given I access the login page
     When I fill the email field with <email>
-#    And I fill the password field with <password>
-#    Then I should see the <result> message
+    And I fill the password field with <password>
+    And I hit the button login
+    Then I should see the <result> message
 
     Examples:
-      |email                   |password|result|
-      |"maryribeiro@gmailcom"  |"123698"|      |
+      |email                   |password      | result|
+      |"maryribeiro@gmailcom"  |"123698"      |"Email deve ser um email válido"     |
 #      |"jorgelacerda@gmailcom" |"123444"|      |

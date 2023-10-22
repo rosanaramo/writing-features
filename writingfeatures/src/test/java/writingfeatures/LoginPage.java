@@ -1,9 +1,11 @@
 package writingfeatures;
 
+import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,14 +15,15 @@ public class LoginPage {
     private static WebDriver driver;
     private WebDriverWait wait;
 
-    private Actions actions;
     public  LoginPage(){
        driver  = new ChromeDriver();
        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-       actions = new Actions(driver);
     }
     By fieldEmail = (By.id("email"));
     By fieldPassword = (By.id("password"));
+    By msgInvalidCredentials = (By.xpath("//*[@id=\"root\"]/div/div/form/div[1]/span"));
+
+    By buttonLogin = (By.xpath("//*[@id=\"root\"]//button"));
     public void navigateToLoginPage(){
         driver.get("https://front.serverest.dev/login");
     }
@@ -32,11 +35,19 @@ public class LoginPage {
         wait.until(ExpectedConditions.elementToBeClickable(fieldEmail));
         driver.findElement(fieldEmail).sendKeys(email);
     }
-//    public void hitLoginButton(){
-//
-//    }
 
-    @AfterAll
+    public void clickLoginButton(){
+        wait.until(ExpectedConditions.elementToBeClickable(buttonLogin));
+        driver.findElement(buttonLogin).click();
+    }
+
+    public String getMsgInvalidCredentials(){
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(msgInvalidCredentials)));
+        String msg = driver.findElement(msgInvalidCredentials).getText();
+        return msg;
+    }
+
+    @After
     static void afterAll(){
         driver.close();
         driver.quit();
