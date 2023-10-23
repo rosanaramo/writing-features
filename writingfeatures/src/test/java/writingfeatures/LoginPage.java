@@ -9,8 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage {
-
-
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -41,7 +39,7 @@ public class LoginPage {
     }
 
     public String getMsgInvalidCredentials(){
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(msgInvalidCredentials)));
+        wait.until(ExpectedConditions.elementToBeClickable(msgInvalidCredentials));
         String msg = driver.findElement(msgInvalidCredentials).getText();
         return msg;
     }

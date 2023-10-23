@@ -13,5 +13,6 @@ Feature: Login the system
 
     Examples:
       |email                   |password      | result|
-      |"maryribeiro@gmailcom"  |"123698"      |"Email deve ser um email válido"     |
-#      |"jorgelacerda@gmailcom" |"123444"|      |
+      |"maryribeiro@gmailcom"  |"123698"      |"Email deve ser um email válido"   |
+      |""                      |"123456"      |"Email é obrigatório"              |
+      |"jorgelacerda@gmailcom" |""            |"Password é obrigatório"           |
