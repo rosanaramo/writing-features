@@ -10,8 +10,10 @@ public class WebDriverFactory {
         switch (webDriver){
             case "firefox":
                 return new FirefoxDriver();
-            default:
+            case "chrome":
                 return new ChromeDriver();
+            default:
+                throw new RuntimeException("Unsupported webdriver: "+ webDriver);
         }
     }
 }
