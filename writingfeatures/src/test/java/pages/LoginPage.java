@@ -1,8 +1,6 @@
-package writingfeatures;
+package pages;
 
-import io.cucumber.java.After;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,7 +16,8 @@ public class LoginPage {
     }
     By fieldEmail = (By.id("email"));
     By fieldPassword = (By.id("password"));
-    By msgInvalidCredentials = (By.xpath("//*[@id=\"root\"]/div/div/form/div[1]/span"));
+    By alertEmail = (By.xpath("//*[@id=\"root\"]/div/div/form/div[1]/span"));
+    By alertPassword = (By.xpath("//*[@id=\"root\"]/div/div/form/div[2]/span"));
 
     By buttonLogin = (By.xpath("//*[@id=\"root\"]//button"));
     public void navigateToLoginPage(){
@@ -38,9 +37,14 @@ public class LoginPage {
         driver.findElement(buttonLogin).click();
     }
 
-    public String getMsgInvalidCredentials(){
-        wait.until(ExpectedConditions.elementToBeClickable(msgInvalidCredentials));
-        String msg = driver.findElement(msgInvalidCredentials).getText();
+    public String getAlertEmail(){
+        wait.until(ExpectedConditions.elementToBeClickable(alertEmail));
+        String msg = driver.findElement(alertEmail).getText();
+        return msg;
+    }
+    public String getAlertPassword(){
+        wait.until(ExpectedConditions.elementToBeClickable(alertEmail));
+        String msg = driver.findElement(alertPassword).getText();
         return msg;
     }
 }

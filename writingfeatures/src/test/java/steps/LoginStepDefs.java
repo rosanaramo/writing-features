@@ -1,7 +1,8 @@
-package writingfeatures;
+package steps;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
+import pages.LoginPage;
 import tests.LoginTest;
 import utils.WebDriverFactory;
 
@@ -38,9 +39,13 @@ public class LoginStepDefs {
         loginPage.clickLoginButton();
     }
 
-    @Then("I should see the {string} message")
-    public void i_should_see_the_message(String result) {
-        loginTest.testLoginMessage(result);
-    }
+    @Then("I should see the email alert {string}")
+    public void i_should_see_the_email_alert(String emailAlert) {
 
+        loginTest.testAlertEmailMessage(emailAlert);
+    }
+    @Then("I should see the password alert {string}")
+    public void i_should_see_the_password_alert(String passwordAlert) {
+        loginTest.testAlertPasswordMessage(passwordAlert);
+    }
 }

@@ -1,4 +1,4 @@
-package writingfeatures;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 

@@ -2,7 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
-import writingfeatures.LoginPage;
+import pages.LoginPage;
 
 public class LoginTest{
 
@@ -15,7 +15,10 @@ public class LoginTest{
 
     }
 
-    public void testLoginMessage(String message){
-        Assertions.assertEquals(message,loginPage.getMsgInvalidCredentials());
+    public void testAlertEmailMessage(String emailAlert){
+        Assertions.assertEquals(emailAlert,loginPage.getAlertEmail());
+    }
+    public void testAlertPasswordMessage(String passwordAlert){
+        Assertions.assertEquals(passwordAlert,loginPage.getAlertEmail());
     }
 }
