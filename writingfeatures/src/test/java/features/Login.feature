@@ -13,7 +13,8 @@ Feature: Login the system
     And I should see the password alert <password alert>
 
     Examples:
-      |email                   |password      | email alert                       |password alert|
-      |"maryribeiro@gmailcom"  |"123698"      |"Email deve ser um email válido"   |    ""        |
-      |""                      |"123456"      |"Email é obrigatório"              |              |
-      |"jorgelacerda@gmailcom" |""            |"Password é obrigatório"           |              |
+      |email                   |password   | email alert                       |password alert          |
+      |"maryribeiro@gmailcom"  |"123698"   |"Email deve ser um email válido"   |    ""                  |
+      |""                      |"123456"   |"Email é obrigatório"              |    ""                  |
+      |"jorgelacerda@gmailcom" |""         |"Email deve ser um email válido"   |"Password é obrigatório"|
+      |""                      |""         |"Email é obrigatório"              |"Password é obrigatório"|

@@ -41,7 +41,6 @@ public class LoginStepDefs {
 
     @Then("I should see the email alert {string}")
     public void i_should_see_the_email_alert(String emailAlert) {
-
         loginTest.testAlertEmailMessage(emailAlert);
     }
     @Then("I should see the password alert {string}")

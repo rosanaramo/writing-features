@@ -12,7 +12,7 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
     By fieldEmail = (By.id("email"));
     By fieldPassword = (By.id("password"));
@@ -43,8 +43,17 @@ public class LoginPage {
         return msg;
     }
     public String getAlertPassword(){
-        wait.until(ExpectedConditions.elementToBeClickable(alertEmail));
+//        wait.until(ExpectedConditions.elementToBeClickable(alertEmail));
         String msg = driver.findElement(alertPassword).getText();
         return msg;
+    }
+    public  boolean isAlertPasswordVisible(){
+        try{
+            wait.until(ExpectedConditions.elementToBeClickable(alertPassword));
+        }
+        catch (TimeoutException exception){
+            return  false;
+        }
+        return  true;
     }
 }
