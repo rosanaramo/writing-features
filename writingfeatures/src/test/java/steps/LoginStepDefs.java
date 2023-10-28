@@ -1,20 +1,25 @@
 package steps;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import pages.LoginPage;
 import tests.LoginTest;
+import utils.Hooks;
 import utils.WebDriverFactory;
 
 public class LoginStepDefs {
     LoginPage loginPage;
     WebDriver driver;
 
+    Hooks hooks;
+
     LoginTest loginTest;
     public LoginStepDefs(){
         driver = WebDriverFactory.createWebDriver();
         loginPage = new LoginPage(driver);
         loginTest = new LoginTest(driver);
+        hooks = new Hooks(driver);
     }
 
     @Given("I access the login page")
@@ -46,5 +51,9 @@ public class LoginStepDefs {
     @Then("I should see the password alert {string}")
     public void i_should_see_the_password_alert(String passwordAlert) {
         loginTest.testAlertPasswordMessage(passwordAlert);
+    }
+    @After
+    public  void afterScenario(){
+         hooks.afterScenario();
     }
 }
